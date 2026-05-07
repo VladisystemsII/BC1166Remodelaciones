@@ -946,11 +946,28 @@
 @media (max-width: 480px) {
   .article-container { padding: 20px 16px; }
   .article-title     { font-size: 1.5rem; }
+  .section-title {
+    font-size: 1.3rem;
+  }
   .article-resumen   { font-size: .97rem; }
   #servicios .hero-pills        { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   #servicios .hero-pill  { font-size: 1rem !important; padding: 12px 10px !important; }
   #servicios .hero-pill img     { width: 24px; height: 24px; }
+  .eyebrow-label {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  .eyebrow {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .eyebrow-line {
+    width: 60px;
+    flex: none;
+  }
 }
 body, section, .container {
   overflow-x: hidden;
 }
+
