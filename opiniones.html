@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opiniones — BC1166 Remodelaciones Bogotá</title>
+  <meta name="description" content="Dejanos tu opinión sobre BC1166 Remodelaciones. Tu experiencia nos ayuda a mejorar y a seguir entregando trabajo de calidad en Bogotá.">
+  <meta property="og:title" content="Opiniones — BC1166 Remodelaciones">
+  <meta property="og:description" content="Califica tu experiencia con BC1166 Remodelaciones en Bogotá.">
+  <link rel="icon" href="img/logo-bc1166.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="css/01-core.css">
+  <link rel="stylesheet" href="css/02-components.css">
+  <link rel="stylesheet" href="css/03-pages.css">
+
+  <style>
+    /* ─── PÁGINA OPINIONES — BC1166 ─── */
+
+    .opiniones-page {
+      padding: 64px 20px 100px;
+      background-image:
+        linear-gradient(rgba(123,47,190,.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(123,47,190,.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      background-attachment: fixed;
+    }
+
+    /* ── Hero ── */
+    .opiniones-hero {
+      max-width: 700px;
+      margin: 0 auto 56px;
+      text-align: center;
+    }
+
+    .opiniones-hero h1 {
+      font-family: var(--font-title);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--black);
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: .5px;
+    }
+
+    .opiniones-hero p {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--gray-dark);
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ── Card base compartida ── */
+    .op-card {
+      max-width: 720px;
+      margin: 0 auto 40px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-top: 3px solid var(--purple);
+      border-radius: var(--r-lg);
+      padding: 44px 52px;
+      box-shadow: var(--s-2);
+    }
+
+    /* ── Compartir WhatsApp ── */
+    .compartir-card {
+      text-align: center;
+    }
+
+    .compartir-card h2 {
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 10px;
+      letter-spacing: .3px;
+    }
+
+    .compartir-card p {
+      font-family: var(--font-body);
+      font-size: .97rem;
+      color: var(--gray-dark);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .compartir-nota {
+      font-size: .8rem;
+      color: var(--gray-400);
+      margin-top: 14px;
+      margin-bottom: 0;
+    }
+
+    /* ── Formulario ── */
+    .form-card-title {
+      font-family: var(--font-title);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: .3px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-row.full { grid-template-columns: 1fr; }
+
+    .form-field { display: flex; flex-direction: column; gap: 7px; }
+
+    .form-field label {
+      font-family: var(--font-title);
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      font-family: var(--font-body);
+      font-size: .97rem;
+      color: var(--black);
+      background: var(--gray-50);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--r-sm);
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color var(--t), box-shadow var(--t);
+      width: 100%;
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.6;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      border-color: var(--purple);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(123,47,190,.08);
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: var(--gray-300);
+    }
+
+    /* ── Estrellas ── */
+    .stars-group {
+      display: flex;
+      gap: 8px;
+      font-size: 2rem;
+      cursor: pointer;
+      margin-bottom: 24px;
+    }
+
+    .star { color: var(--gray-300); transition: color var(--t); user-select: none; }
+    .star.selected,
+    .star.hover { color: var(--purple); }
+
+    /* ── Radio buttons ── */
+    .radio-group { display: flex; gap: 10px; flex-wrap: wrap; }
+    .radio-option { flex: 1; min-width: 90px; }
+    .radio-option input[type="radio"] { display: none; }
+
+    .radio-option label {
+      display: block;
+      text-align: center;
+      padding: 12px 10px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--r-sm);
+      cursor: pointer;
+      font-family: var(--font-title);
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+      background: var(--gray-50);
+      transition: all var(--t);
+      letter-spacing: .3px;
+    }
+
+    .radio-option input[type="radio"]:checked + label {
+      background: var(--purple);
+      color: var(--white);
+      border-color: var(--purple);
+    }
+
+    .radio-option label:hover {
+      border-color: var(--purple);
+      background: var(--purple-soft);
+      color: var(--purple);
+    }
+
+    .form-section-label {
+      font-family: var(--font-title);
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--gray-400);
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--gray-200);
+      margin: 28px 0;
+    }
+
+    /* ── Botón enviar ── */
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--purple);
+      color: var(--white);
+      border: none;
+      border-radius: var(--r-pill);
+      font-family: var(--font-title);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      margin-top: 32px;
+      transition: background var(--t), transform var(--t), box-shadow var(--t);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-submit:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-purple);
+    }
+
+    .btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    /* ── Confirmación ── */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+      animation: fadeInUp .4s ease both;
+    }
+
+    .form-success.visible { display: block; }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 1.6rem;
+      color: var(--white);
+    }
+
+    .form-success h2 {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+
+    .form-success p {
+      font-family: var(--font-body);
+      font-size: .97rem;
+      color: var(--gray-dark);
+      line-height: 1.7;
+      max-width: 400px;
+      margin: 0 auto 28px;
+    }
+
+    .form-disclaimer {
+      font-family: var(--font-body);
+      font-size: .78rem;
+      color: var(--gray-400);
+      text-align: center;
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .opiniones-page { padding: 40px 16px 60px; }
+      .op-card        { padding: 32px 24px; }
+      .form-row       { grid-template-columns: 1fr; gap: 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .op-card { padding: 24px 16px; border-radius: var(--r-md); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══ WHATSAPP FLOTANTE ═══ -->
+  <a class="wa-float"
+     href="https://wa.me/573114831846?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20reparaci%C3%B3n%20locativa"
+     target="_blank" rel="noopener" aria-label="Cotizar por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.882a.5.5 0 00.606.63l6.281-1.637A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.031-1.385l-.36-.214-3.733.973.998-3.642-.235-.374A9.799 9.799 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+    </svg>
+  </a>
+
+  <main class="bg-white">
+    <div class="opiniones-page">
+
+      <!-- ── Hero ── -->
+      <div class="opiniones-hero">
+        <div class="eyebrow" style="margin-bottom: 20px;">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-label">Tu opinión importa</span>
+          <div class="eyebrow-line"></div>
+        </div>
+        <h1>¿Cómo te fue<br>con BC1166?</h1>
+        <p>Tu experiencia nos ayuda a mejorar y a seguir entregando trabajo de calidad en Bogotá.</p>
+      </div>
+
+      <!-- ── Compartir WhatsApp ── -->
+      <div class="op-card compartir-card">
+        <h2>¿Quedaste satisfecho? Recomiéndanos</h2>
+        <p>Comparte BC1166 con un familiar o amigo. Un solo tap abre WhatsApp con el mensaje listo para enviar.</p>
+        <a id="btnCompartirWA" class="btn btn-primary" href="#" target="_blank" rel="noopener">
+          <svg style="width:20px;height:20px;fill:#fff;flex-shrink:0;" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.882a.5.5 0 00.606.63l6.281-1.637A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.031-1.385l-.36-.214-3.733.973.998-3.642-.235-.374A9.799 9.799 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+          </svg>
+          Compartir con un amigo
+        </a>
+        <p class="compartir-nota">Se abre WhatsApp con el link de BC1166 listo para enviar.</p>
+      </div>
+
+      <!-- ── Formulario opinión ── -->
+      <div class="op-card">
+
+        <div id="form-wrapper">
+          <div class="form-card-title">Dejanos tu opinión</div>
+
+          <form id="opinion-form" onsubmit="handleSubmit(event)">
+
+            <input type="hidden" name="entry.500997768" value="Si">
+
+            <!-- Nombre + Teléfono -->
+            <div class="form-row">
+              <div class="form-field">
+                <label for="nombre">Tu nombre</label>
+                <input type="text" id="nombre" name="entry.1290601027" placeholder="¿Cómo te llamás?" required>
+              </div>
+              <div class="form-field">
+                <label for="telefono">Teléfono (opcional)</label>
+                <input type="tel" id="telefono" name="entry.1595164733" placeholder="300 000 0000">
+              </div>
+            </div>
+
+            <hr class="form-divider">
+
+            <!-- Estrellas -->
+            <p class="form-section-label">¿Cómo calificarías tu experiencia?</p>
+            <div class="stars-group" id="starsGroup">
+              <span class="star" data-val="1">★</span>
+              <span class="star" data-val="2">★</span>
+              <span class="star" data-val="3">★</span>
+              <span class="star" data-val="4">★</span>
+              <span class="star" data-val="5">★</span>
+            </div>
+            <input type="hidden" id="calificacion" name="entry.1330743196" value="">
+
+            <hr class="form-divider">
+
+            <!-- Tipo de comentario -->
+            <p class="form-section-label">Tipo de comentario</p>
+            <div class="form-row full" style="margin-bottom: 24px;">
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="tipo-felicitacion" name="entry.71353046" value="Felicitación" required>
+                  <label for="tipo-felicitacion">👏 Felicitación</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="tipo-sugerencia" name="entry.71353046" value="Sugerencia">
+                  <label for="tipo-sugerencia">💡 Sugerencia</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="tipo-reclamo" name="entry.71353046" value="Reclamo">
+                  <label for="tipo-reclamo">⚠️ Reclamo</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Comentario -->
+            <div class="form-row full">
+              <div class="form-field">
+                <label for="comentario">Tu comentario</label>
+                <textarea
+                  id="comentario"
+                  name="entry.1444965401"
+                  placeholder="Cuéntanos tu experiencia: el trabajo, los tiempos, el equipo, lo que más te gustó o lo que podemos mejorar..."
+                  required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submit-btn">
+              <span>Enviar opinión</span>
+              <span>→</span>
+            </button>
+
+            <p class="form-disclaimer">Tu opinión puede ser publicada en nuestras redes sociales. No compartimos tus datos personales.</p>
+
+          </form>
+        </div>
+
+        <!-- Confirmación -->
+        <div class="form-success" id="form-success">
+          <div class="success-icon">✓</div>
+          <h2>¡Gracias por tu opinión!</h2>
+          <p>Tu comentario es muy valioso para nosotros. Seguimos trabajando con calidad y compromiso en Bogotá.</p>
+          <a href="index.html" class="btn btn-purple">Volver al inicio</a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // ===== BOTÓN COMPARTIR WHATSAPP =====
+    const URL_BC1166 = "https://bc1166.com";
+    const MENSAJE_WA = `¡Te recomiendo BC1166 Remodelaciones en Bogotá! Hacen enchapes, electricidad, plomería, drywall, pintura y carpintería. Muy profesionales: ${URL_BC1166}`;
+    document.getElementById("btnCompartirWA").href =
+      `https://wa.me/?text=${encodeURIComponent(MENSAJE_WA)}`;
+
+    // ===== ESTRELLAS =====
+    let calificacionSeleccionada = 0;
+    const stars = document.querySelectorAll(".star");
+
+    stars.forEach(star => {
+      star.addEventListener("mouseover", function () {
+        const val = parseInt(this.dataset.val);
+        stars.forEach(s => s.classList.toggle("hover", parseInt(s.dataset.val) <= val));
+      });
+      star.addEventListener("mouseout", function () {
+        stars.forEach(s => s.classList.remove("hover"));
+      });
+      star.addEventListener("click", function () {
+        calificacionSeleccionada = parseInt(this.dataset.val);
+        document.getElementById("calificacion").value = calificacionSeleccionada;
+        stars.forEach(s => s.classList.toggle("selected", parseInt(s.dataset.val) <= calificacionSeleccionada));
+      });
+    });
+
+    // ===== ENVÍO FORMULARIO =====
+    function handleSubmit(e) {
+      e.preventDefault();
+      if (!calificacionSeleccionada) {
+        alert("Por favor selecciona una calificación con las estrellas ⭐");
+        return;
+      }
+      const btn = document.getElementById("submit-btn");
+      btn.disabled = true;
+      btn.innerHTML = '<span>Enviando...</span>';
+
+      const form = document.getElementById("opinion-form");
+      const data = new FormData(form);
+      const params = new URLSearchParams(data);
+
+      fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSeYCBDAx-51nqP6v_AUbNlyf-2wiZEydiw4ql8EEVCb9sLGAg/formResponse", {
+        method: "POST",
+        mode: "no-cors",
+        body: params
+      }).then(() => {
+        document.getElementById("form-wrapper").style.display = "none";
+        document.getElementById("form-success").classList.add("visible");
+      }).catch(() => {
+        document.getElementById("form-wrapper").style.display = "none";
+        document.getElementById("form-success").classList.add("visible");
+      });
+    }
+  </script>
+
+  <script src="js/config-bc1166.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/header-loader.js"></script>
+  <script src="js/footer-loader.js"></script>
+  <script src="js/menu-mobile.js"></script>
+
+</body>
+</html>

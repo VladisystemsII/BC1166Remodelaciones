@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══════════════════════════════════════════
+       SEO — BC1166 REMODELACIONES BOGOTÁ
+       Artículo individual — Meta dinámica por JS
+  ════════════════════════════════════════════ -->
+  <!-- El title y meta description se actualizan dinámicamente por articulo.js -->
+  <title>Blog | BC1166 Remodelaciones Bogotá</title>
+  <meta name="description" content="Artículos, consejos y proyectos de remodelación de interiores en Bogotá. BC1166 Remodelaciones." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph base — el JS actualiza og:title, og:description, og:image, og:url -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="BC1166 Remodelaciones" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:image" content="https://bc1166.com/img/og-blog.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Geo / Local -->
+  <meta name="geo.region" content="CO-DC" />
+  <meta name="geo.placename" content="Bogotá, Colombia" />
+  <meta name="geo.position" content="4.710989;-74.072090" />
+  <meta name="ICBM" content="4.710989, -74.072090" />
+
+  <!-- Schema.org Article — el JS inyecta el bloque dinámico en <head> -->
+  <!-- Bloque base estático para Google antes de JS -->
+  <script type="application/ld+json" id="schemaArticle">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+      "@type": "LocalBusiness",
+      "name": "BC1166 Remodelaciones",
+      "url": "https://bc1166.com",
+      "logo": "https://bc1166.com/img/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bogotá",
+        "addressCountry": "CO"
+      }
+    }
+  }
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/articulo.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/iconoinmo33.png" />
+</head>
+
+<body>
+
+  <!-- ═══ HEADER (cargado por JS) ═══ -->
+  <div id="header-container"></div>
+
+  <!-- ═══════════════════════════════
+       ARTÍCULO — CONTENIDO PRINCIPAL
+  ════════════════════════════════ -->
+  <main>
+    <div class="container">
+
+      <!-- ── BTN VOLVER AL BLOG ── -->
+      <a href="blog.html" class="article-back" aria-label="Volver al blog">
+        <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Volver al blog
+      </a>
+
+      <!-- ── ESTADO: CARGANDO ── -->
+      <div class="loading" id="articuloLoading" role="status" aria-live="polite">
+        <div class="spinner" aria-hidden="true"></div>
+        <span>Cargando artículo...</span>
+      </div>
+
+      <!-- ── ESTADO: ERROR ── -->
+      <div class="article-error" id="articuloError" style="display:none;" role="alert">
+        <h2>Artículo no encontrado</h2>
+        <p>El artículo que buscas no existe o fue removido.</p>
+        <a href="blog.html">← Ver todos los artículos</a>
+      </div>
+
+      <!-- ── CONTENEDOR DEL ARTÍCULO ── -->
+      <article class="article-container" id="articuloContainer">
+
+        <!-- Tag/Categoría — inyectado por JS -->
+        <div id="articuloTag"></div>
+
+        <!-- Foto principal -->
+        <div class="article-foto-wrap" id="articuloFotoWrap" style="display:none;">
+          <img class="article-foto" id="articuloFoto" src="" alt="" loading="lazy" />
+        </div>
+
+        <!-- Fecha -->
+        <div class="article-date" id="articuloFecha" aria-label="Fecha de publicación"></div>
+
+        <!-- Título principal (h1 para SEO) -->
+        <h1 class="article-title" id="articuloTitulo"></h1>
+
+        <!-- Resumen / bajada -->
+        <p class="article-resumen" id="articuloResumen"></p>
+
+        <hr class="article-divider" />
+
+        <!-- Cuerpo del artículo (markdown renderizado) -->
+        <div class="article-content" id="articuloContenido"></div>
+
+        <!-- CTA final -->
+        <div class="article-cta" id="articuloCta">
+          <h3>¿Listo para remodelar tu espacio en Bogotá?</h3>
+          <p>Cuéntanos tu proyecto — respondemos en menos de 24 horas.</p>
+          <a class="article-cta-btn"
+             href="https://wa.me/573000000000?text=Hola%2C%20me%20interesa%20una%20remodelaci%C3%B3n%20en%20Bogot%C3%A1"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Solicitar cotización por WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.121 1.527 5.855L.057 23.886a.5.5 0 0 0 .601.637l6.197-1.479A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 0 1-5.001-1.368l-.358-.213-3.714.886.933-3.609-.234-.371A9.774 9.774 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/>
+            </svg>
+            Solicitar cotización gratis
+          </a>
+        </div>
+
+      </article>
+
+    </div>
+  </main>
+
+  <!-- ═══ WHATSAPP FLOTANTE ═══ -->
+  <a class="wa-float"
+     href="https://wa.me/573000000000?text=Hola%2C%20me%20interesa%20una%20remodelaci%C3%B3n%20en%20Bogot%C3%A1"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.121 1.527 5.855L.057 23.886a.5.5 0 0 0 .601.637l6.197-1.479A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 0 1-5.001-1.368l-.358-.213-3.714.886.933-3.609-.234-.371A9.774 9.774 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/>
+    </svg>
+  </a>
+
+  <!-- ═══ FOOTER (cargado por JS) ═══ -->
+  <div id="footer-container"></div>
+
+  <!-- ═══ SCRIPTS — mismo orden que el proyecto base ═══ -->
+  <script src="js/header-loader.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer-loader.js"></script>
+  <script src="js/menu-mobile.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/articulo.js"></script>
+
+</body>
+</html>

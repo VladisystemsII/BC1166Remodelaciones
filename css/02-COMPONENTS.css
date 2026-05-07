@@ -1,0 +1,625 @@
+/* =====================================================
+   BC1166 — 02-COMPONENTS.CSS  v2.1
+   PIEZAS REUTILIZABLES
+   ─────────────────────────────────────────────────────
+   Contenido:
+     1.  WhatsApp flotante
+     2.  Botón volver (fixed)
+     3.  Eyebrow (label de sección)
+     4.  Fondos de sección
+     5.  Service cards
+     6.  Gallery items
+     7.  Steps (proceso)
+     8.  Stats
+     9.  Testimonios (cards individuales)
+    10.  Blog card
+    11.  Blog filters
+    12.  Opinion card
+    13.  Hero CTA SVG icon
+    14.  Responsive components
+   ─────────────────────────────────────────────────────
+   REGLA:
+     Si una clase se usa en más de una página → va aquí.
+     Si pertenece a UNA sola página → va en 03-PAGES.css.
+   ===================================================== */
+
+
+/* ─────────────────────────────────────────────────────
+   1. WHATSAPP FLOTANTE
+   ───────────────────────────────────────────────────── */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--wa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-wa);
+  z-index: 9999;
+  transition: var(--t);
+  animation: wa-pulse 2.5s infinite;
+}
+
+.wa-float:hover { transform: scale(1.1); animation: none; }
+.wa-float svg   { width: 32px; height: 32px; fill: #fff; }
+
+/*  @keyframes wa-pulse {
+  0%, 100% { box-shadow: var(--shadow-wa); }
+  50%       { box-shadow: 0 4px 30px rgba(37,211,102,.55); }
+}
+
+@keyframes bc-pulse {
+  0%, 100% { box-shadow: var(--shadow-wa); }
+  50%       { box-shadow: 0 4px 30px rgba(37,211,102,.55); }
+}   */
+
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: var(--shadow-wa); }
+  50%      { box-shadow: 0 4px 30px rgba(0,110,130,.35); }
+}
+
+@keyframes bc-pulse {
+  0%, 100% { box-shadow: var(--shadow-wa); }
+  50%      { box-shadow: 0 4px 30px rgba(0,110,130,.35); }
+}
+
+
+/* ─────────────────────────────────────────────────────
+   2. BOTÓN VOLVER (fixed, sobre el wa-float)
+   ───────────────────────────────────────────────────── */
+.btn-volver {
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  background: var(--purple);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-title);
+  font-size: .82rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-purple);
+  z-index: 999;
+  transition: var(--t);
+}
+
+.btn-volver:hover { background: var(--purple-dark); transform: translateY(-2px); }
+
+
+/* ─────────────────────────────────────────────────────
+   3. EYEBROW (label de sección reutilizable)
+   ───────────────────────────────────────────────────── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.eyebrow-label {
+  font-family: var(--font-title);
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--purple);
+  white-space: nowrap;
+}
+
+.eyebrow-line {
+  flex: 0 0 60px;
+  height: 1.9px;
+  background: var(--gray-200);
+}
+
+
+
+/* Versión sobre fondo oscuro */
+.dark .eyebrow-label { color: rgba(255,255,255,.40); }
+.dark .eyebrow-line  { background: rgba(255,255,255,.10); }
+
+/* Títulos y descripciones de sección */
+.section-title {
+  font-family: var(--font-title);
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.dark .section-title { color: #fff; }
+
+.section-desc {
+  font-size: .97rem;
+  color: var(--gray-dark);
+  max-width: 540px;
+  line-height: 1.7;
+  margin-bottom: 52px;
+}
+
+.dark .section-desc { color: rgba(255,255,255,.55); }
+
+
+/* ─────────────────────────────────────────────────────
+   4. FONDOS DE SECCIÓN + CUADRÍCULA CONTINUA
+   ─────────────────────────────────────────────────────
+   La cuadrícula va directo en el background de cada
+   sección, combinada con el color de fondo.
+   background-position: 0 0 en todas garantiza que
+   las líneas de 48px se alineen entre secciones.
+   ───────────────────────────────────────────────────── */
+
+.bg-white,
+.bg-gray,
+.bg-dark,
+.hero,
+.cta-final,
+main {
+  background-size: auto, auto, 48px 48px, 48px 48px;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  background-attachment: local, local, fixed, fixed;
+}
+
+main {
+  background-image:
+    none,
+    none,
+    linear-gradient(rgba(123,47,190,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123,47,190,.05) 1px, transparent 1px);
+  background-color: #ffffff;
+}
+
+.bg-white,
+.hero,
+.cta-final {
+  background-image:
+    none,
+    none,
+    linear-gradient(rgba(123,47,190,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123,47,190,.05) 1px, transparent 1px);
+  background-color: #ffffff;
+}
+
+.bg-gray {
+  background-image:
+    none,
+    none,
+    linear-gradient(rgba(123,47,190,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123,47,190,.05) 1px, transparent 1px);
+  background-color: #ebebee;
+}
+
+.bg-dark {
+  background-image:
+    linear-gradient(160deg, #2c2c2c 0%, #1a1a1a 60%, #222 100%),
+    none,
+    linear-gradient(rgba(123,47,190,.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123,47,190,.09) 1px, transparent 1px);
+  background-color: #1a1a1a;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   5. SERVICE CARDS
+   ───────────────────────────────────────────────────── */
+.service-card {
+  background: var(--white);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  border-left: 4px solid var(--purple);
+  box-shadow: var(--s-1);
+  transition: var(--t);
+}
+
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--s-2); }
+
+.service-card-img           { width: 100%; height: 200px; overflow: hidden; background: var(--gray-200); }
+.service-card-img img       { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+.service-card:hover .service-card-img img { transform: scale(1.05); }
+
+/* Placeholder imagen */
+.service-card-img-ph {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #2a2a2a, #444);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.service-card-body         { padding: 22px 24px 26px; }
+.service-card-body h3      { font-family: var(--font-title); font-size: 1.05rem; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+.service-card-body p       { font-size: .91rem; color: var(--gray-dark); line-height: 1.65; }
+
+.service-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-title);
+  font-size: .72rem;
+  font-weight: 700;
+  color: var(--purple);
+  background: var(--purple-soft);
+  padding: 3px 12px;
+  border-radius: var(--r-pill);
+}
+
+
+/* ─────────────────────────────────────────────────────
+   6. GALLERY ITEMS
+   ───────────────────────────────────────────────────── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.gallery-item {
+  border-radius: var(--r-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--gray-200);
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-item img       { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s; }
+.gallery-item:hover img { transform: scale(1.06); }
+
+.gallery-item-ph {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #2c2c2c, #555);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: rgba(255,255,255,.30);
+  font-family: var(--font-title);
+  font-size: .78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.gallery-item-ph span { font-size: 2rem; }
+
+.gallery-badge {
+  position: absolute;
+  top: 10px; left: 10px;
+  background: rgba(0,0,0,.65);
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+}
+
+.gallery-badge--purple { background: var(--purple); }
+
+
+/* ─────────────────────────────────────────────────────
+   7. STEPS (proceso 3 pasos)
+   ───────────────────────────────────────────────────── */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  position: relative;
+}
+
+/* Línea conectora entre pasos */
+.process-grid::before {
+  content: '';
+  position: absolute;
+  top: 31px;
+  left:  calc(16.6% + 24px);
+  right: calc(16.6% + 24px);
+  height: 2px;
+  background: linear-gradient(to right, var(--purple), rgba(123,47,190,.20));
+}
+
+.step { text-align: center; position: relative; z-index: 1; }
+
+.step-num {
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  background: var(--black);
+  color: #fff;
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border: 4px solid var(--white);
+  box-shadow: var(--s-1);
+  transition: var(--t);
+}
+
+.step:hover .step-num { background: var(--purple); }
+
+.step h3  { font-family: var(--font-title); font-size: 1rem; font-weight: 700; color: var(--black); margin-bottom: 8px; }
+.step p   { font-size: .9rem; color: var(--gray-dark); line-height: 1.6; max-width: 220px; margin: 0 auto; }
+
+
+/* ─────────────────────────────────────────────────────
+   8. STATS
+   ───────────────────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  margin-bottom: 56px;
+}
+
+.stat {
+  text-align: center;
+  padding: 36px 20px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r-lg);
+  transition: var(--t);
+}
+
+.stat:hover { border-color: rgba(123,47,190,.40); }
+
+.stat-num {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-num sub {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.40);
+  vertical-align: baseline;
+}
+
+.stat-label { font-size: .87rem; color: rgba(255,255,255,.50); line-height: 1.4; }
+
+
+/* ─────────────────────────────────────────────────────
+   9. TESTIMONIOS (cards individuales)
+   ───────────────────────────────────────────────────── */
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+}
+
+.testimonio {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  position: relative;
+}
+
+.testimonio::before {
+  content: '"';
+  position: absolute;
+  top: 14px; left: 22px;
+  font-size: 4rem;
+  font-family: Georgia, serif;
+  color: rgba(123,47,190,.25);
+  line-height: 1;
+}
+
+.testimonio-stars  { color: #faee06; font-size: .95rem; letter-spacing: 2px; margin-bottom: 12px; }
+
+.testimonio p {
+  font-size: .93rem;
+  color: rgba(255,255,255,.70);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 18px;
+  padding-top: 8px;
+}
+
+.testimonio-autor {
+  font-family: var(--font-title);
+  font-size: .80rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.40);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   10. BLOG CARD
+   ───────────────────────────────────────────────────── */
+.blog-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-left: 4px solid var(--purple);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--s-1);
+  transition: var(--t);
+  animation: card-in .35s ease both;
+}
+
+.blog-card:hover { transform: translateY(-4px); box-shadow: var(--s-2); }
+
+.blog-card-img     { width: 100%; height: 180px; overflow: hidden; background: var(--gray-200); }
+.blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.blog-card:hover .blog-card-img img { transform: scale(1.05); }
+
+.blog-card-body    { padding: 20px 22px 24px; }
+
+.blog-card-date {
+  font-family: var(--font-title);
+  font-size: .78rem;
+  font-weight: 400;
+  color: var(--gray-dark);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* Título dentro de la card — puede usarse como <a> */
+.blog-card-titulo {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--black);
+  margin-bottom: 8px;
+  transition: color var(--t);
+}
+
+.blog-card-titulo:hover { color: var(--purple); }
+
+.blog-card-body p  { font-size: .88rem; color: var(--gray-dark); line-height: 1.6; }
+
+.blog-card-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-title);
+  font-size: .88rem;
+  font-weight: 500;
+  letter-spacing: .5px;
+  color: var(--purple);
+  transition: var(--t);
+}
+
+.blog-card-link:hover { color: var(--purple-dark); }
+
+/* Wrapper de enlace completo sobre la card */
+.blog-card-link-wrap { display: block; }
+
+/* Animación de entrada */
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ─────────────────────────────────────────────────────
+   11. BLOG FILTERS (filtros de categoría)
+   ───────────────────────────────────────────────────── */
+.blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.blog-filter {
+  font-family: var(--font-title);
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--gray-dark);
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  padding: 6px 18px;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: all .2s;
+  white-space: nowrap;
+}
+
+.blog-filter:hover  { background: var(--purple-light); color: var(--purple); border-color: rgba(123,47,190,.2); }
+.blog-filter.active { background: var(--purple); color: #fff; border-color: var(--purple); box-shadow: var(--shadow-purple); }
+
+
+/* ─────────────────────────────────────────────────────
+   12. OPINION CARD
+   ───────────────────────────────────────────────────── */
+.opinion-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--r-lg);
+  padding: 28px;
+  box-shadow: var(--s-1);
+  position: relative;
+  transition: var(--t);
+}
+
+.opinion-card:hover { transform: translateY(-4px); box-shadow: var(--s-2); }
+
+.opinion-card::before {
+  content: '"';
+  position: absolute;
+  top: 14px; left: 20px;
+  font-size: 3.5rem;
+  font-family: Georgia, serif;
+  color: rgba(123,47,190,.12);
+  line-height: 1;
+}
+
+.opinion-stars { color: #faee06; font-size: .95rem; letter-spacing: 2px; margin-bottom: 10px; }
+
+.opinion-card p {
+  font-size: .93rem;
+  color: var(--gray-dark);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 18px;
+  padding-top: 6px;
+}
+
+.opinion-autor {
+  font-family: var(--font-title);
+  font-size: .88rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+  color: var(--black);
+}
+
+.opinion-zona {
+  font-family: var(--font-title);
+  font-size: .80rem;
+  font-weight: 400;
+  color: var(--gray-dark);
+  margin-top: 2px;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   13. HERO CTA — icono SVG interno
+   ───────────────────────────────────────────────────── */
+.hero-cta svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+  flex-shrink: 0;
+}
+
+
+/* ─────────────────────────────────────────────────────
+   14. RESPONSIVE COMPONENTS
+   ───────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .process-grid         { grid-template-columns: 1fr; gap: 24px; }
+  .process-grid::before { display: none; }
+  .testimonios-grid     { grid-template-columns: 1fr; }
+  .wa-float             { bottom: 20px; right: 20px; }
+  .btn-volver           { bottom: 86px; right: 20px; }
+}
+
+@media (max-width: 580px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid   { grid-template-columns: 1fr; }
+}

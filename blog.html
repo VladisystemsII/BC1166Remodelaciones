@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ═══════════════════════════════════════════
+       SEO ON-PAGE — BC1166 REMODELACIONES BOGOTÁ
+       Blog principal
+  ════════════════════════════════════════════ -->
+  <title>Blog de Remodelaciones en Bogotá | Consejos y Tendencias | BC1166</title>
+  <meta name="description" content="Descubre consejos expertos, tendencias de diseño interior y casos reales de remodelación de cocinas, baños y espacios en Bogotá. Blog oficial de BC1166 Remodelaciones." />
+  <meta name="keywords" content="remodelaciones Bogotá, remodelación cocinas Bogotá, diseño interior Bogotá, reformas apartamentos Bogotá, remodelación baños, BC1166 remodelaciones, consejos remodelación" />
+  <meta name="author" content="BC1166 Remodelaciones" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://bc1166.com/blog.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bc1166.com/blog.html" />
+  <meta property="og:title" content="Blog de Remodelaciones en Bogotá | BC1166" />
+  <meta property="og:description" content="Consejos expertos, tendencias y proyectos reales de remodelación en Bogotá. Aprende con BC1166 Remodelaciones." />
+  <meta property="og:image" content="https://bc1166.com/img/og-blog.jpg" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:site_name" content="BC1166 Remodelaciones" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog de Remodelaciones en Bogotá | BC1166" />
+  <meta name="twitter:description" content="Consejos, tendencias y proyectos de remodelación en Bogotá." />
+  <meta name="twitter:image" content="https://bc1166.com/img/og-blog.jpg" />
+
+  <!-- Geo / Local SEO -->
+  <meta name="geo.region" content="CO-DC" />
+  <meta name="geo.placename" content="Bogotá, Colombia" />
+  <meta name="geo.position" content="4.710989;-74.072090" />
+  <meta name="ICBM" content="4.710989, -74.072090" />
+
+  <!-- Schema.org — Blog + LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": "https://bc1166.com/blog.html",
+        "name": "Blog BC1166 Remodelaciones",
+        "description": "Consejos, tendencias y proyectos de remodelación de interiores en Bogotá",
+        "url": "https://bc1166.com/blog.html",
+        "inLanguage": "es-CO",
+        "publisher": {
+          "@type": "LocalBusiness",
+          "@id": "https://bc1166.com/#business",
+          "name": "BC1166 Remodelaciones",
+          "url": "https://bc1166.com",
+          "logo": "https://bc1166.com/img/logo.png",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bogotá",
+            "addressRegion": "Cundinamarca",
+            "addressCountry": "CO"
+          },
+          "areaServed": "Bogotá, Colombia",
+          "telephone": "+57-300-000-0000",
+          "priceRange": "$$"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://bc1166.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://bc1166.com/blog.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- CSS 
+  <link rel="stylesheet" href="css/styles-bc1166.css" /> -->
+
+  <link rel="stylesheet" href="css/01-core.css">
+  <link rel="stylesheet" href="css/02-components.css">
+  <link rel="stylesheet" href="css/03-pages.css">
+
+
+
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/iconoinmo33.png" />
+</head>
+
+<body>
+
+  <!-- ═══ HEADER (cargado por JS) ═══ -->
+  <div id="header-container"></div>
+
+  <!-- ═══════════════════════════════
+       BLOG — SECCIÓN PRINCIPAL
+  ════════════════════════════════ -->
+  <main>
+    <div class="blog-container" style="background-image: linear-gradient(rgba(123,47,190,.10) 1px, transparent 1px), linear-gradient(90deg, rgba(123,47,190,.05) 1px, transparent 1px); background-size: 48px 48px; background-attachment: fixed;">
+      <div class="container">
+
+        <!-- Eyebrow -->
+        <div class="section-eyebrow">
+          <span class="section-label">Conocimiento</span>
+          <span class="section-line"></span>
+        </div>
+
+        <!-- Título -->
+        <h1 class="blog-title">Blog de Remodelaciones</h1>
+        <p class="blog-sub">Consejos prácticos, tendencias de diseño y proyectos reales en Bogotá</p>
+
+        <!-- ── FILTROS / CATEGORÍAS ── -->
+        <div class="blog-filters" id="blogFilters" aria-label="Filtrar por categoría">
+          <button class="blog-filter active" data-cat="todos">Todos</button>
+          <!-- Las categorías dinámicas se inyectan por JS -->
+        </div>
+
+        <!-- ── ESTADO: CARGANDO ── -->
+        <div class="loading" id="blogLoading" role="status" aria-live="polite">
+          <div class="spinner" aria-hidden="true"></div>
+          <span>Cargando artículos...</span>
+        </div>
+
+        <!-- ── ESTADO: ERROR ── -->
+        <div class="blog-error" id="blogError" style="display:none;" role="alert">
+          <p>No se pudieron cargar los artículos. <a href="javascript:location.reload()">Intenta de nuevo</a>.</p>
+        </div>
+
+        <!-- ── GRID DE TARJETAS ── -->
+        <div class="blog-grid" id="blogGrid" aria-label="Artículos del blog">
+          <!-- Tarjetas generadas por blog.js -->
+        </div>
+
+        <!-- ── SIN RESULTADOS ── -->
+        <div class="blog-empty" id="blogEmpty" style="display:none;" role="status">
+          <p>No hay artículos en esta categoría todavía.</p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══ WHATSAPP FLOTANTE ═══ -->
+  <a class="wa-float"
+     href="https://wa.me/573000000000?text=Hola%2C%20me%20interesa%20una%20remodelaci%C3%B3n%20en%20Bogot%C3%A1"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.121 1.527 5.855L.057 23.886a.5.5 0 0 0 .601.637l6.197-1.479A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 0 1-5.001-1.368l-.358-.213-3.714.886.933-3.609-.234-.371A9.774 9.774 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/>
+    </svg>
+  </a>
+
+  <!-- ═══ FOOTER (cargado por JS) ═══ -->
+  <div id="footer-container"></div>
+
+  <!-- 1. CONFIG -->
+<script src="js/config-bc1166.js"></script>
+
+<!-- 2. CORE UI -->
+<script src="js/header-loader.js"></script>
+<script src="js/header.js"></script>
+<script src="js/footer-loader.js"></script>
+<script src="js/menu-mobile.js"></script>
+
+<!-- 3. FEATURES -->
+<script src="js/blog.js"></script>
+
+</body>
+</html>
