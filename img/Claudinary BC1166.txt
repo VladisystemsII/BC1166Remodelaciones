@@ -9,3 +9,26 @@ https://res.cloudinary.com/diifewvvs/image/upload/logo_bc1166_dibmg1
 
 
 logo normal
+
+fotos---->
+
+foto1
+https://res.cloudinary.com/diifewvvs/image/upload/v1778211706/F2_tdw2ls.webp
+
+
+
+https://res.cloudinary.com/diifewvvs/image/upload/v1778212503/F3_caucfi.webp
+
+https://res.cloudinary.com/diifewvvs/image/upload/v1778214227/F4_jmw0i6.webp
+https://res.cloudinary.com/diifewvvs/image/upload/v1778215030/F6_cjjjjm.webp
+
+
+videos--->
+
+video 1
+
+https://res.cloudinary.com/diifewvvs/video/upload/v1778206160/video_2026-05-07_20-19-41_rj2u12.mp4
+
+video2
+
+https://res.cloudinary.com/diifewvvs/video/upload/v1778210691/video_2026-05-07_22-17-06_pbuf8w.mp4
