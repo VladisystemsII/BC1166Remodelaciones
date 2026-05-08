@@ -465,71 +465,9 @@
         </div>
         <h2 class="section-title">Trabajos en imágenes</h2>
 
-        <div class="fotos-grid">
-
-          <!-- FOTO 1 — reemplazar src con URL Cloudinary real -->
-          <div class="foto-item">
-            <!-- <div class="foto-ph"><span>🪨</span>Enchape</div> -->
-            <img src="https://res.cloudinary.com/diifewvvs/image/upload/f_auto,q_auto/v1778211706/F2_tdw2ls.webp" alt="Enchape BC1166">
-            <div class="foto-label">Enchapes · Santa Bárbara</div>
-          </div>
-
-          <!-- FOTO 2 -->
-          <div class="foto-item">
-            <!-- <div class="foto-ph"><span>🖌️</span>Pintura</div> -->
-            <img src="https://res.cloudinary.com/diifewvvs/image/upload/f_auto,q_auto/v1778212503/F3_caucfi.webp" alt="Plomería — BC1166 Bogotá">
-            <div class="foto-label">Cambio grupo de ducha . Cedritos</div>
-          </div>
-
-          <!-- FOTO 3 -->
-          <div class="foto-item">
-            <!-- <div class="foto-ph"><span>🧱</span>Drywall</div> -->
-            <img src="https://res.cloudinary.com/diifewvvs/image/upload/f_auto,q_auto/v1778214227/F4_jmw0i6.webp" alt="Pintura — BC1166 Bogotá">
-            <div class="foto-label">Pintura de casa . Chapinero</div>
-          </div>
-
-          <!-- FOTO 4 — reemplazar src con URL Cloudinary real -->
-          <div class="foto-item">
-            <!-- <div class="foto-ph"><span>🪨</span>Enchape</div> -->
-            <img src="https://res.cloudinary.com/diifewvvs/image/upload/f_auto,q_auto/v1778215030/F6_cjjjjm.webp" alt="Enchape — BC1166 Bogotá">
-            <div class="foto-label">Instalación de sanitario · Av. Boyacá</div>
-          </div>
-
-          <!-- FOTO 5 -->
-          <div class="foto-item">
-            <!-- <div class="foto-ph"><span>🖌️</span>Pintura</div> -->
-            <img src="https://res.cloudinary.com/diifewvvs/image/upload/f_auto,q_auto/v1778215032/F5_ib3ggw.webp" alt="Enchape — BC1166 Bogotá">
-            <div class="foto-label">Instalación de enchape . La colina </div>
-          </div>
-
-          <!-- FOTO 6 -->
-          <div class="foto-item">
-            <div class="foto-ph"><span>🧱</span>Drywall</div>
-            <!-- <img src="URL_CLOUDINARY_3" alt="Drywall — BC1166 Bogotá"> -->
-            <div class="foto-label">Drywall · Usaquén</div>
-          </div>
-
-          <!-- FOTO 7 — reemplazar src con URL Cloudinary real -->
-          <div class="foto-item">
-            <div class="foto-ph"><span>🪨</span>Enchape</div>
-            <!-- <img src="URL_CLOUDINARY_1" alt="Enchape de baño — BC1166 Bogotá"> -->
-            <div class="foto-label">Enchapes · Chapinero</div>
-          </div>
-
-          <!-- FOTO 8 -->
-          <div class="foto-item">
-            <div class="foto-ph"><span>🖌️</span>Pintura</div>
-            <!-- <img src="URL_CLOUDINARY_2" alt="Pintura interior — BC1166 Bogotá"> -->
-            <div class="foto-label">Pintura · Suba</div>
-          </div>
-
-          <!-- FOTO 9 -->
-          <div class="foto-item">
-            <div class="foto-ph"><span>🧱</span>Drywall</div>
-            <!-- <img src="URL_CLOUDINARY_3" alt="Drywall — BC1166 Bogotá"> -->
-            <div class="foto-label">Drywall · Usaquén</div>
-          </div>
-
+        <!-- Cargado dinámicamente por servicios.js -->
+        <div class="fotos-grid" id="fotosGrid">
+          <div class="loading"><div class="spinner"></div>Cargando fotos…</div>
         </div>
       </div>
     </section>
@@ -546,23 +484,20 @@
         </div>
         <h2 class="section-title">El trabajo en movimiento</h2>
 
-        <div class="videos-grid">
+        <!-- Cargado dinámicamente por servicios.js -->
+        <div class="videos-grid" id="videosGrid">
+          <div class="loading"><div class="spinner"></div>Cargando videos…</div>
+        </div>
 
-          <!-- VIDEO 1 — reemplazar con embed de Instagram real -->
-          <!-- Para embeber: pegar el bloque <blockquote> de Instagram aquí -->
-          <div class="video-item">
+        <!-- videos legacy ocultos — reemplazados por datos del JSON -->
+        <div style="display:none">
+
+
+
+          <!-- VIDEO 2 legacy -->
+            <div class="video-item" style="display:none">
             <video class="video-ph" controls>
-            <source src="https://res.cloudinary.com/diifewvvs/video/upload/q_auto,f_auto/v1778206160/video_2026-05-07_20-19-41_rj2u12.mp4" type="video/mp4">
-            </video>
-            <div class="video-caption">Limpieza de tubería en Santa Bárbara · Bogotá</div>
-          </div>
-
-
-
-          <!-- VIDEO 2 -->
-            <div class="video-item">
-            <video class="video-ph" controls>
-            <source src="https://res.cloudinary.com/diifewvvs/video/upload/q_auto,f_auto/v1778210691/video_2026-05-07_22-17-06_pbuf8w.mp4" type="video/mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/diifewvvs/video/upload/q_auto,f_auto/v1778210691/video_2026-05-07_22-17-06_pbuf8w.mp4" type="video/mp4">
             </video>
             <div class="video-caption">Instalación de cocina eléctrica en Santa Bárbara · Bogotá</div>
           </div>
@@ -600,40 +535,9 @@
         </div>
         <h2 class="section-title">La transformación real</h2>
 
-        <div class="ad-grid">
-
-          <!-- CASO 1 -->
-          <div class="ad-item">
-            <div class="ad-header">Baño completo · Chapinero</div>
-            <div class="ad-cols">
-              <div class="ad-col">
-                <!-- <img src="URL_ANTES_1" alt="Antes — baño Chapinero"> -->
-                <div class="ad-ph">📷</div>
-                <span class="ad-badge antes">Antes</span>
-              </div>
-              <div class="ad-col">
-                <!-- <img src="URL_DESPUES_1" alt="Después — baño Chapinero"> -->
-                <div class="ad-ph">✨</div>
-                <span class="ad-badge despues">Después</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- CASO 2 -->
-          <div class="ad-item">
-            <div class="ad-header">Cocina · Suba</div>
-            <div class="ad-cols">
-              <div class="ad-col">
-                <div class="ad-ph">📷</div>
-                <span class="ad-badge antes">Antes</span>
-              </div>
-              <div class="ad-col">
-                <div class="ad-ph">✨</div>
-                <span class="ad-badge despues">Después</span>
-              </div>
-            </div>
-          </div>
-
+        <!-- Cargado dinámicamente por servicios.js -->
+        <div class="ad-grid" id="adGrid">
+          <div class="loading"><div class="spinner"></div>Cargando…</div>
         </div>
       </div>
     </section>
@@ -650,60 +554,8 @@
         </div>
         <h2 class="section-title">Lo que nos escriben</h2>
 
-        <div class="testimonios-wa-grid">
-
-          <!-- TESTIMONIO TEXTO — reemplazar con mensaje real de WhatsApp -->
-          <div class="wa-testimonio">
-            <div class="wa-bubble">
-              <div class="wa-bubble-header">
-                <div class="wa-bubble-icon">
-                  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.882a.5.5 0 00.606.63l6.281-1.637A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.031-1.385l-.36-.214-3.733.973.998-3.642-.235-.374A9.799 9.799 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-                </div>
-                <div>
-                  <div class="wa-bubble-nombre">Cliente · Chapinero</div>
-                  <div class="wa-bubble-zona">Bogotá</div>
-                </div>
-              </div>
-              <div class="wa-bubble-texto">Excelente trabajo en el enchape de la cocina. Cumplieron los tiempos y el acabado quedó perfecto.</div>
-              <div class="wa-bubble-stars">★★★★★</div>
-            </div>
-          </div>
-
-          <!-- TESTIMONIO TEXTO 2 -->
-          <div class="wa-testimonio">
-            <div class="wa-bubble">
-              <div class="wa-bubble-header">
-                <div class="wa-bubble-icon">
-                  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.882a.5.5 0 00.606.63l6.281-1.637A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.031-1.385l-.36-.214-3.733.973.998-3.642-.235-.374A9.799 9.799 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-                </div>
-                <div>
-                  <div class="wa-bubble-nombre">Cliente · Suba</div>
-                  <div class="wa-bubble-zona">Bogotá</div>
-                </div>
-              </div>
-              <div class="wa-bubble-texto">Remodelamos el baño completo con plomería y enchape. Muy profesionales, limpios y el precio fue justo.</div>
-              <div class="wa-bubble-stars">★★★★★</div>
-            </div>
-          </div>
-
-          <!-- TESTIMONIO CAPTURA — reemplazar img con captura real de WhatsApp -->
-          <div class="wa-testimonio">
-            <div class="wa-bubble">
-              <div class="wa-bubble-header">
-                <div class="wa-bubble-icon">
-                  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.882a.5.5 0 00.606.63l6.281-1.637A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.031-1.385l-.36-.214-3.733.973.998-3.642-.235-.374A9.799 9.799 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-                </div>
-                <div>
-                  <div class="wa-bubble-nombre">Cliente · Usaquén</div>
-                  <div class="wa-bubble-zona">Bogotá</div>
-                </div>
-              </div>
-              <div class="wa-bubble-texto">El drywall quedó perfecto, ni una grieta. El equipo fue muy ordenado y puntual. Los recomiendo sin dudar.</div>
-              <div class="wa-bubble-stars">★★★★★</div>
-            </div>
-          </div>
-
-        </div>
+        <!-- Cargado dinámicamente por servicios.js -->
+        <div class="testimonios-wa-grid" id="testimoniosGrid"></div>
       </div>
     </section>
 
@@ -754,6 +606,7 @@
   <script src="js/header-loader.js"></script>
   <script src="js/footer-loader.js"></script>
   <script src="js/menu-mobile.js"></script>
+  <script src="js/servicios.js"></script>
 
 </body>
 </html>
