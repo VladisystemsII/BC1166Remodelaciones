@@ -49,11 +49,33 @@
       color: var(--gray-dark);
       background: var(--gray-100);
       border: 1px solid var(--gray-200);
-      border-radius: var(--r-pill);
+      /* border-radius: var(--r-pill); */
+      border-radius: 0;
       padding: 7px 16px;
       cursor: pointer;
       transition: var(--t);
     }
+
+    .subnav-pill {
+         all: unset;
+    }
+
+    .subnav-pill.active {
+        background: none;
+        color: var(--purple);
+    }
+
+
+    .subnav-pill {
+  color: var(--gray-dark);
+}
+
+.subnav-pill.active {
+  color: var(--purple);
+}
+
+
+
 
     .subnav-pill:hover,
     .subnav-pill.active {
@@ -405,6 +427,70 @@
     @media (max-width: 480px) {
       .fotos-grid { grid-template-columns: 1fr; }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    .subnav-pill,
+.subnav-pill:hover,
+.subnav-pill:focus,
+.subnav-pill.active,
+.subnav-pill:target {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+
+
+
+
+
+
+
+
+.subnav-pill {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+}
+
+
+
+
+
+
+.subnav-pill {
+  color: var(--gray-dark) !important;
+}
+
+.subnav-pill.active {
+  color: var(--purple) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </style>
 </head>
 <body>
@@ -441,7 +527,7 @@
             <div class="eyebrow-line"></div>
           </div>
           <!-- <h1 class="servicios-hero-title">Nuestros <span style="color:var(--purple)">Servicios</span></h1> -->
-          <p>Evidencia real de cada proyecto. Lo que ves es lo que hacemos.</p>
+          <p>Evidencia de cada proyecto - Lo que ves es lo que hacemos</p>
         </div>
         <!-- <a class="btn btn-primary"
            href="https://wa.me/573114831846?text=Hola%2C%20quiero%20cotizar%20un%20servicio%20de%20reparaci%C3%B3n%20locativa"
