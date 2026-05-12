@@ -1,5 +1,6 @@
 // servicios.js — Carga y renderiza trabajos BC1166
 // Dependencia: config-bc1166.js debe cargarse antes que este script.
+// Columnas sheet: CODIGO | Column2(ts) | TITULO FOTO | FOTO | TITULO VIDEO | VIDEO | POSTER | TITULO EJECUCIONES | ANTES/DESPUES | TITULO TESTIMONIO | TESTIMNIO | ACTIVO
 
 // ===== NORMALIZAR URLs =====
 function extraerFileId(url) {
@@ -18,12 +19,10 @@ function normalizarUrl(url) {
   if (!url || url.trim() === '') return null;
   url = url.trim();
   if (url.includes('cloudinary.com')) {
-    return url.replace('/upload/', '/upload/w_800,f_auto,q_auto/');
+    return url.includes('/upload/w_') ? url : url.replace('/upload/', '/upload/w_800,f_auto,q_auto/');
   }
   const fileId = extraerFileId(url);
-  if (fileId) {
-    return `https://drive.google.com/thumbnail?id=${fileId}&sz=w800`;
-  }
+  if (fileId) return `https://drive.google.com/thumbnail?id=${fileId}&sz=w800`;
   return url;
 }
 
@@ -31,7 +30,7 @@ function normalizarVideo(url) {
   if (!url || url.trim() === '') return null;
   url = url.trim();
   if (url.includes('cloudinary.com')) {
-    return url.replace('/upload/', '/upload/q_auto,f_auto/');
+    return url.includes('/upload/q_') ? url : url.replace('/upload/', '/upload/q_auto,f_auto/');
   }
   return url;
 }
@@ -44,6 +43,7 @@ function sanitize(str) {
 }
 
 // ===== RENDER FOTOS =====
+// TITULO FOTO aparece como label superpuesto al fondo de la imagen
 function renderFotos(activos) {
   const grid = document.getElementById('fotosGrid');
   if (!grid) return;
@@ -57,23 +57,25 @@ function renderFotos(activos) {
 
   grid.innerHTML = '';
   conFoto.forEach(t => {
-    const src = normalizarUrl(t['FOTO']);
+    const src    = normalizarUrl(t['FOTO']);
     if (!src) return;
-    const codigo = sanitize(t['CODIGO'] || t['Codigo'] || '');
-    const item = document.createElement('div');
+    const titulo = sanitize(t['TITULO FOTO'] || '');
+    const item   = document.createElement('div');
     item.className = 'foto-item';
     item.innerHTML = `
       <img src="${src}"
-           alt="Trabajo BC1166${codigo ? ' · ' + codigo : ''}"
+           alt="${titulo || 'Trabajo BC1166 Remodelaciones Bogotá'}"
            loading="lazy"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="foto-ph" style="display:none"><span>📷</span>Sin imagen</div>
+      ${titulo ? `<div class="foto-label">${titulo}</div>` : ''}
     `;
     grid.appendChild(item);
   });
 }
 
 // ===== RENDER VIDEOS =====
+// TITULO VIDEO arriba del recuadro, POSTER como miniatura, play activa el video
 function renderVideos(activos) {
   const grid = document.getElementById('videosGrid');
   if (!grid) return;
@@ -87,22 +89,30 @@ function renderVideos(activos) {
 
   grid.innerHTML = '';
   conVideo.forEach(t => {
-    const src = normalizarVideo(t['VIDEO']);
+    const src    = normalizarVideo(t['VIDEO']);
     if (!src) return;
-    const codigo = sanitize(t['CODIGO'] || t['Codigo'] || '');
+    const poster = t['POSTER'] ? normalizarUrl(t['POSTER']) : '';
+    const titulo = sanitize(t['TITULO VIDEO'] || '');
+
     const item = document.createElement('div');
     item.className = 'video-item';
     item.innerHTML = `
-      <video class="video-ph" controls preload="none" loading="lazy">
+      ${titulo ? `<div class="video-titulo">${titulo}</div>` : ''}
+      <video
+        preload="none"
+        controls
+        playsinline
+        ${poster ? `poster="${poster}"` : ''}
+      >
         <source src="${src}" type="video/mp4">
       </video>
-      <div class="video-caption">Trabajo BC1166${codigo ? ' · ' + codigo : ''}</div>
     `;
     grid.appendChild(item);
   });
 }
 
 // ===== RENDER ANTES/DESPUÉS =====
+// Imagen ancha, TITULO EJECUCIONES debajo
 function renderAntesDespues(activos) {
   const grid = document.getElementById('adGrid');
   if (!grid) return;
@@ -123,64 +133,71 @@ function renderAntesDespues(activos) {
 
   grid.innerHTML = '';
   conAD.forEach(t => {
-    const src = normalizarUrl(t['ANTES/DESPUES']);
+    const src    = normalizarUrl(t['ANTES/DESPUES']);
     if (!src) return;
-    const codigo = sanitize(t['CODIGO'] || t['Codigo'] || '');
-    const item = document.createElement('div');
+    const titulo = sanitize(t['TITULO EJECUCIONES'] || '');
+    const item   = document.createElement('div');
     item.className = 'ad-item';
     item.innerHTML = `
-      <div class="ad-header">Trabajo${codigo ? ' · ' + codigo : ''}</div>
       <div class="ad-cols" style="grid-template-columns:1fr;">
         <div class="ad-col" style="aspect-ratio:16/9;">
           <img src="${src}"
-               alt="Antes y después${codigo ? ' · ' + codigo : ''} — BC1166"
+               alt="${titulo || 'Antes y después — BC1166 Remodelaciones'}"
                loading="lazy"
                onerror="this.style.display='none'">
         </div>
       </div>
+      ${titulo ? `<div class="ad-footer-label">${titulo}</div>` : ''}
     `;
     grid.appendChild(item);
   });
 }
 
 // ===== RENDER TESTIMONIOS =====
+// TITULO TESTIMONIO arriba, TESTIMNIO (typo de la sheet) abajo — imagen o texto
 function renderTestimonios(activos) {
   const grid = document.getElementById('testimoniosGrid');
   if (!grid) return;
 
-  const conTestimonio = activos.filter(t => t['TESTIMONIO'] && t['TESTIMONIO'].trim() !== '');
+  const conTestimonio = activos.filter(t => {
+    const val = t['TESTIMNIO'] || t['TESTIMONIO'] || '';
+    return val.trim() !== '';
+  });
 
   if (conTestimonio.length === 0) {
     grid.innerHTML = '';
     return;
   }
 
-  // Ocultar los testimonios hardcodeados y agregar los dinámicos al inicio
   grid.innerHTML = '';
   conTestimonio.forEach(t => {
-    const texto = sanitize(t['TESTIMONIO']);
-    const codigo = sanitize(t['CODIGO'] || t['Codigo'] || '');
+    const valor  = t['TESTIMNIO'] || t['TESTIMONIO'] || '';
+    const titulo = sanitize(t['TITULO TESTIMONIO'] || '');
 
-    // Detectar si el testimonio es una URL de imagen
-    const esImagen = /\.(jpg|jpeg|png|webp|gif)/i.test(t['TESTIMONIO']) ||
-                     t['TESTIMONIO'].includes('cloudinary.com') ||
-                     t['TESTIMONIO'].includes('drive.google.com');
+    const esImagen = /\.(jpg|jpeg|png|webp|gif)/i.test(valor) ||
+                     valor.includes('cloudinary.com') ||
+                     valor.includes('drive.google.com');
 
     const item = document.createElement('div');
     item.className = 'wa-testimonio';
 
     if (esImagen) {
-      const srcImg = normalizarUrl(t['TESTIMONIO']);
-      item.innerHTML = `<img src="${srcImg}" alt="Testimonio cliente BC1166" loading="lazy">`;
-    } else {
+      const srcImg = normalizarUrl(valor);
       item.innerHTML = `
+        ${titulo ? `<div class="testimonio-titulo">${titulo}</div>` : ''}
+        <img src="${srcImg}" alt="${titulo || 'Testimonio cliente BC1166'}" loading="lazy">
+      `;
+    } else {
+      const texto = sanitize(valor);
+      item.innerHTML = `
+        ${titulo ? `<div class="testimonio-titulo">${titulo}</div>` : ''}
         <div class="wa-bubble">
           <div class="wa-bubble-header">
             <div class="wa-bubble-icon">
               <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.856L.057 23.882a.5.5 0 00.606.63l6.281-1.637A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.031-1.385l-.36-.214-3.733.973.998-3.642-.235-.374A9.799 9.799 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
             </div>
             <div>
-              <div class="wa-bubble-nombre">Cliente BC1166${codigo ? ' · ' + codigo : ''}</div>
+              <div class="wa-bubble-nombre">Cliente BC1166</div>
               <div class="wa-bubble-zona">Bogotá</div>
             </div>
           </div>
@@ -205,7 +222,6 @@ async function loadServicios() {
 
     const data = await response.json();
 
-    // Filtrar activos — campo ACTIVO (si/no)
     const activos = data.filter(
       t => String(t['ACTIVO'] || t['Activo'] || t['activo'] || '').toLowerCase().trim() === 'si'
     );
