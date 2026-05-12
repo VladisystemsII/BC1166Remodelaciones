@@ -1,6 +1,7 @@
 // servicios.js — Carga y renderiza trabajos BC1166
 // Dependencia: config-bc1166.js debe cargarse antes que este script.
 // Columnas sheet: CODIGO | Column2(ts) | TITULO FOTO | FOTO | TITULO VIDEO | VIDEO | POSTER | TITULO EJECUCIONES | ANTES/DESPUES | TITULO TESTIMONIO | TESTIMNIO | ACTIVO
+// CODIGO y Column2 NO se publican en el frontend.
 
 // ===== NORMALIZAR URLs =====
 function extraerFileId(url) {
@@ -43,7 +44,6 @@ function sanitize(str) {
 }
 
 // ===== RENDER FOTOS =====
-// TITULO FOTO aparece como label superpuesto al fondo de la imagen
 function renderFotos(activos) {
   const grid = document.getElementById('fotosGrid');
   if (!grid) return;
@@ -60,8 +60,10 @@ function renderFotos(activos) {
     const src    = normalizarUrl(t['FOTO']);
     if (!src) return;
     const titulo = sanitize(t['TITULO FOTO'] || '');
-    const item   = document.createElement('div');
+
+    const item = document.createElement('div');
     item.className = 'foto-item';
+
     item.innerHTML = `
       <img src="${src}"
            alt="${titulo || 'Trabajo BC1166 Remodelaciones Bogotá'}"
@@ -75,7 +77,6 @@ function renderFotos(activos) {
 }
 
 // ===== RENDER VIDEOS =====
-// TITULO VIDEO arriba del recuadro, POSTER como miniatura, play activa el video
 function renderVideos(activos) {
   const grid = document.getElementById('videosGrid');
   if (!grid) return;
@@ -91,28 +92,37 @@ function renderVideos(activos) {
   conVideo.forEach(t => {
     const src    = normalizarVideo(t['VIDEO']);
     if (!src) return;
-    const poster = t['POSTER'] ? normalizarUrl(t['POSTER']) : '';
+    const poster = t['POSTER'] ? normalizarUrl(t['POSTER']) : null;
     const titulo = sanitize(t['TITULO VIDEO'] || '');
 
     const item = document.createElement('div');
     item.className = 'video-item';
-    item.innerHTML = `
-      ${titulo ? `<div class="video-titulo">${titulo}</div>` : ''}
-      <video
-        preload="none"
-        controls
-        playsinline
-        ${poster ? `poster="${poster}"` : ''}
-      >
-        <source src="${src}" type="video/mp4">
-      </video>
-    `;
+
+    // Construir el elemento video directamente con JS para que el poster se aplique correctamente
+    const video = document.createElement('video');
+    video.preload  = 'none';
+    video.controls = true;
+    video.setAttribute('playsinline', '');
+    if (poster) video.poster = poster;
+
+    const source = document.createElement('source');
+    source.src  = src;
+    source.type = 'video/mp4';
+    video.appendChild(source);
+
+    if (titulo) {
+      const tituloEl = document.createElement('div');
+      tituloEl.className   = 'video-titulo';
+      tituloEl.textContent = titulo;
+      item.appendChild(tituloEl);
+    }
+
+    item.appendChild(video);
     grid.appendChild(item);
   });
 }
 
 // ===== RENDER ANTES/DESPUÉS =====
-// Imagen ancha, TITULO EJECUCIONES debajo
 function renderAntesDespues(activos) {
   const grid = document.getElementById('adGrid');
   if (!grid) return;
@@ -136,7 +146,8 @@ function renderAntesDespues(activos) {
     const src    = normalizarUrl(t['ANTES/DESPUES']);
     if (!src) return;
     const titulo = sanitize(t['TITULO EJECUCIONES'] || '');
-    const item   = document.createElement('div');
+
+    const item = document.createElement('div');
     item.className = 'ad-item';
     item.innerHTML = `
       <div class="ad-cols" style="grid-template-columns:1fr;">
@@ -154,7 +165,6 @@ function renderAntesDespues(activos) {
 }
 
 // ===== RENDER TESTIMONIOS =====
-// TITULO TESTIMONIO arriba, TESTIMNIO (typo de la sheet) abajo — imagen o texto
 function renderTestimonios(activos) {
   const grid = document.getElementById('testimoniosGrid');
   if (!grid) return;
