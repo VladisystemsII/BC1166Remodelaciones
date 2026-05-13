@@ -340,7 +340,7 @@ section { padding: var(--section) 0; }
    10. FOOTER
    ───────────────────────────────────────────────────── */
 .footer {
-  background: #111;
+  background: #000000;
   color: rgba(255,255,255,.45);
   padding: 56px 0 32px;
   font-size: .87rem;
@@ -348,9 +348,9 @@ section { padding: var(--section) 0; }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1.4fr;
   gap: var(--gap);
-  margin-bottom: 36px;
+  margin-bottom: 28px;
 }
 
 .footer-logo img {
@@ -367,7 +367,7 @@ section { padding: var(--section) 0; }
   max-width: 260px;
 }
 
-.footer h4 {
+.footer-nav{
   font-family: var(--font-title);
   font-size: .82rem;
   font-weight: 600;
@@ -375,7 +375,11 @@ section { padding: var(--section) 0; }
   text-transform: uppercase;
   color: rgba(255,255,255,.65);
   margin-bottom: 16px;
+  padding-left: 40px;
 }
+
+
+
 
 .footer ul           { list-style: none; }
 .footer ul li        { margin-bottom: 10px; }
@@ -419,6 +423,18 @@ section { padding: var(--section) 0; }
 }
 
 .social a:hover { background: var(--purple); color: #fff; }
+
+
+.vladisystems-footer{
+  margin-top: -10px;
+  text-align: center;
+}
+
+.vladisystems-footer img{
+  width: 120%;
+  max-width: 420px;
+  opacity: 0.92;
+}
 
 
 /* ─────────────────────────────────────────────────────
