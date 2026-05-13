@@ -362,19 +362,28 @@
 
           <form id="opinion-form" onsubmit="handleSubmit(event)">
 
-            <input type="hidden" name="entry.500997768" value="Si">
+            <input type="hidden" name="entry.1926959997" value="Si">
 
             <!-- Nombre + Teléfono -->
             <div class="form-row">
               <div class="form-field">
                 <label for="nombre">Tu nombre</label>
-                <input type="text" id="nombre" name="entry.1290601027" placeholder="¿Cómo te llamás?" required>
+                <input type="text" id="nombre" name="entry.487418577" placeholder="¿Cómo te llamás?" required>
               </div>
               <div class="form-field">
                 <label for="telefono">Teléfono (opcional)</label>
-                <input type="tel" id="telefono" name="entry.1595164733" placeholder="300 000 0000">
+                <input type="tel" id="telefono" name="entry.214709667" placeholder="300 000 0000">
               </div>
             </div>
+
+
+                <!--  entry.487418577   → nombre
+                      entry.214709667   → teléfono
+                      entry.1226709848  → comentario
+                      entry.378791670   → estrellas
+                      entry.1463493820  → tipo comentario
+                      entry.1926959997  → activo / si-->
+
 
             <hr class="form-divider">
 
@@ -387,7 +396,7 @@
               <span class="star" data-val="4">★</span>
               <span class="star" data-val="5">★</span>
             </div>
-            <input type="hidden" id="calificacion" name="entry.1330743196" value="">
+            <input type="hidden" id="calificacion" name="entry.378791670" value="">
 
             <hr class="form-divider">
 
@@ -396,15 +405,15 @@
             <div class="form-row full" style="margin-bottom: 24px;">
               <div class="radio-group">
                 <div class="radio-option">
-                  <input type="radio" id="tipo-felicitacion" name="entry.71353046" value="Felicitación" required>
+                  <input type="radio" id="tipo-felicitacion" name="entry.1463493820" value="Felicitación" required>
                   <label for="tipo-felicitacion">👏 Felicitación</label>
                 </div>
                 <div class="radio-option">
-                  <input type="radio" id="tipo-sugerencia" name="entry.71353046" value="Sugerencia">
+                  <input type="radio" id="tipo-sugerencia" name="entry.1463493820" value="Sugerencia">
                   <label for="tipo-sugerencia">💡 Sugerencia</label>
                 </div>
                 <div class="radio-option">
-                  <input type="radio" id="tipo-reclamo" name="entry.71353046" value="Reclamo">
+                  <input type="radio" id="tipo-reclamo" name="entry.1463493820" value="Reclamo">
                   <label for="tipo-reclamo">⚠️ Reclamo</label>
                 </div>
               </div>
@@ -416,7 +425,7 @@
                 <label for="comentario">Tu comentario</label>
                 <textarea
                   id="comentario"
-                  name="entry.1444965401"
+                  name="entry.1226709848"
                   placeholder="Cuéntanos tu experiencia: el trabajo, los tiempos, el equipo, lo que más te gustó o lo que podemos mejorar..."
                   required></textarea>
               </div>
@@ -447,7 +456,7 @@
 
   <script>
     // ===== BOTÓN COMPARTIR WHATSAPP =====
-    const URL_BC1166 = "https://bc1166.com";
+    const URL_BC1166 = "https://vladisystemsii.github.io/BC1166Remodelaciones/";
     const MENSAJE_WA = `¡Te recomiendo BC1166 Remodelaciones en Bogotá! Hacen enchapes, electricidad, plomería, drywall, pintura y carpintería. Muy profesionales: ${URL_BC1166}`;
     document.getElementById("btnCompartirWA").href =
       `https://wa.me/?text=${encodeURIComponent(MENSAJE_WA)}`;
@@ -486,7 +495,7 @@
       const data = new FormData(form);
       const params = new URLSearchParams(data);
 
-      fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSeYCBDAx-51nqP6v_AUbNlyf-2wiZEydiw4ql8EEVCb9sLGAg/formResponse", {
+      fetch("https://docs.google.com/forms/u/0/d/e/1FAIpQLSdk5iRY6Uhq4PWGooeps0-hUCiEdniCU8Llt8k3KAhSCzcAvw/formResponse", {
         method: "POST",
         mode: "no-cors",
         body: params
