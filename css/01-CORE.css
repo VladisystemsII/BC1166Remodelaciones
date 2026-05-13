@@ -508,7 +508,7 @@ button:focus-visible {
     z-index: 1000;
   }
 
-  }
+  
 
 
 
@@ -521,12 +521,14 @@ button:focus-visible {
   .footer-grid       { grid-template-columns: 1fr; }
   .footer-bottom     { flex-direction: column; text-align: center; }
 }
- .footer-contact{
+
+
+  .footer-contact{
     padding-left: 0;
     text-align: center;
+    transform: translateX(-8px);
   }
-
-
+ 
 
 
 @media (max-width: 480px){
@@ -561,8 +563,8 @@ button:focus-visible {
   .footer-contact{
     padding-left: 0;
     text-align: center;
+    transform: translateX(-8px);
   }
-
   .footer-contact li{
     justify-content: center;
   }
@@ -603,7 +605,3 @@ button:focus-visible {
 
 
 
- .footer-contact{
-    padding-left: 0;
-    text-align: center;
-  }
