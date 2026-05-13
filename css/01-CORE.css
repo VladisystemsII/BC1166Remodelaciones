@@ -526,7 +526,7 @@ button:focus-visible {
   .footer-contact{
     padding-left: 0;
     text-align: center;
-    transform: translateX(-8px);
+    transform: translateX(-14px);
   }
  
 
@@ -563,7 +563,7 @@ button:focus-visible {
   .footer-contact{
     padding-left: 0;
     text-align: center;
-    transform: translateX(-8px);
+    transform: translateX(-14px);
   }
   .footer-contact li{
     justify-content: center;
