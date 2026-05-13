@@ -425,9 +425,15 @@ section { padding: var(--section) 0; }
 .social a:hover { background: var(--purple); color: #fff; }
 
 
-.vladisystems-footer{
+/*  .vladisystems-footer{
   margin-top: 0px;
   text-align: center;
+}  */
+
+.vladisystems-footer{
+  margin-top: 0px;
+  padding-top: 20px;
+  transform: translateX(-3px);
 }
 
 .vladisystems-footer img{
@@ -435,6 +441,8 @@ section { padding: var(--section) 0; }
   max-width: 420px;
   opacity: 0.92;
 }
+
+
 
 
 /* ─────────────────────────────────────────────────────
