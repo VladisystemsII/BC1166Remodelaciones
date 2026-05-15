@@ -75,7 +75,7 @@ const ARTICULOS_DEMO = [
     imagen: 'https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=900&q=80',
     activo: 'TRUE',
   },
-  {
+  /* {
     id: '6',
     slug: 'proyecto-apartamento-chapinero',
     titulo: 'Caso real: remodelación completa de apartamento en Chapinero',
@@ -85,6 +85,18 @@ const ARTICULOS_DEMO = [
     categoria: 'Proyectos',
     imagen: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80',
     activo: 'TRUE',
+  }, */
+
+  {
+  id: '6',
+  slug: 'consejos-cuando-remodelar-tu-propiedad',
+  titulo: 'Consejos: cuándo remodelar tu propiedad',
+  resumen: 'Guía práctica para identificar el momento correcto para remodelar una propiedad y tomar decisiones inteligentes.',
+  contenido: '## ¿Cuándo deberías remodelar tu propiedad?\n\nRemodelar es una decisión estratégica, no emocional. Hacerlo en el momento correcto puede ahorrarte dinero y aumentar el valor del inmueble.\n\n## Consejos clave\n\n- Evalúa primero el estado real de la estructura antes de invertir\n- Prioriza seguridad: electricidad y tuberías van primero\n- No remodeles por estética si hay problemas ocultos\n- Haz mejoras que aumenten el valor del inmueble, no solo lo visual\n- Evita remodelaciones parciales sin planificación general\n\n## Señales claras de que debes remodelar\n\n- Humedades en paredes o techos\n- Instalaciones antiguas o peligrosas\n- Espacios poco funcionales\n- Acabados deteriorados\n- Dificultad para arrendar o vender\n\n## Momento ideal para remodelar\n\n- Antes de vender o arrendar\n- Después de muchos años sin mantenimiento\n- Cuando necesitas adaptar el espacio a nuevas necesidades\n\n## Recomendación\n\nSiempre inicia con un diagnóstico. La remodelación sin diagnóstico genera sobrecostos y errores de ejecución.\n\n> Primero se entiende el problema, luego se interviene la propiedad.',
+  fecha: '15/02/2025',
+  categoria: 'Consejos',
+  imagen: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=900&q=80',
+  activo: 'TRUE',
   },
 ];
 
